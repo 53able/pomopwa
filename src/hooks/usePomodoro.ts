@@ -128,12 +128,19 @@ export function usePomodoro() {
       };
       saveState(updatedState);
 
-      // アクティブでない場合は時間を更新
+      // アクティブでない場合は時間を更新（新しい設定値を使用）
       if (!isRunning) {
-        updateTimeLeft();
+        const newSettings = updatedState.settings;
+        const duration =
+          currentPhase === 'work'
+            ? newSettings.workDuration
+            : currentPhase === 'shortBreak'
+              ? newSettings.shortBreakDuration
+              : newSettings.longBreakDuration;
+        setTimeLeft(duration * 60);
       }
     },
-    [state, saveState, isRunning, updateTimeLeft]
+    [state, saveState, isRunning, currentPhase]
   );
 
   // クリーンアップ
