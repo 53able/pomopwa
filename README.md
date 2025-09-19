@@ -11,6 +11,12 @@ Progressive Web App対応のポモドーロタイマーアプリケーション�
 - ⚙️ **カスタマイズ**: 時間設定・通知・画面スリープ防止
 - 🎯 **時刻指定機能**: 目標時刻まで連続ポモドーロ（拡張機能）
 
+## 🚀 デプロイ
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/53able/pomopwa)
+
+本アプリケーションを即座にVercelにデプロイできます。
+
 ## 📋 ドキュメント
 
 - **[📋 Product Requirements Document](docs/product-requirements-document.md)** - 製品要件・機能仕様
@@ -61,9 +67,9 @@ pnpm lint
 pnpm check
 ```
 
-## 🚀 デプロイメント
+## ⚙️ Vercel設定
 
-本アプリケーションはVercelへの静的サイトとしてデプロイされます。詳細な設定は[Technical Implementation Guide](docs/technical-implementation-guide.md)を参照してください。
+本アプリケーションはVercelで最適化されており、`vercel.json`にPWA対応の設定が含まれています。詳細な技術仕様については[Technical Implementation Guide](docs/technical-implementation-guide.md)を参照してください。
 
 ---
 
