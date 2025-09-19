@@ -4,48 +4,76 @@
 
 @layer base {
   :root {
+    /* iOS Light Mode Colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 0%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 346 77% 49.8%;
-    --primary-foreground: 355.7 100% 97.3%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 84% 4.9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 346 77% 49.8%;
-    --radius: 0.5rem;
+    --popover-foreground: 0 0% 0%;
+    --primary: 211 100% 50%; /* iOS Blue */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 17% 95%; /* iOS Gray 5 */
+    --secondary-foreground: 0 0% 0%;
+    --muted: 210 17% 95%;
+    --muted-foreground: 0 0% 60%; /* iOS Gray */
+    --accent: 211 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 1 83% 63%; /* iOS Red */
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 70% 45%; /* iOS Green */
+    --success-foreground: 0 0% 100%;
+    --warning: 48 100% 67%; /* iOS Orange */
+    --warning-foreground: 0 0% 0%;
+    --border: 0 0% 90%; /* iOS Separator */
+    --input: 0 0% 95%;
+    --ring: 211 100% 50%;
+    --radius: 0.75rem; /* iOS Corner Radius */
+    
+    /* iOS Specific */
+    --ios-label: 0 0% 0%;
+    --ios-secondary-label: 0 0% 60%;
+    --ios-tertiary-label: 0 0% 70%;
+    --ios-system-fill: 0 0% 95%;
+    --ios-secondary-system-fill: 0 0% 93%;
+    --ios-tertiary-system-fill: 0 0% 90%;
+    --ios-quaternary-system-fill: 0 0% 87%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 346 77% 49.8%;
-    --primary-foreground: 355.7 100% 97.3%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 346 77% 49.8%;
+    /* iOS Dark Mode Colors */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 209 100% 60%; /* iOS Blue Dark */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 17%; /* iOS Gray 5 Dark */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 17%;
+    --muted-foreground: 0 0% 60%; /* iOS Gray Dark */
+    --accent: 209 100% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 8 79% 66%; /* iOS Red Dark */
+    --destructive-foreground: 0 0% 100%;
+    --success: 162 63% 54%; /* iOS Green Dark */
+    --success-foreground: 0 0% 100%;
+    --warning: 48 100% 67%; /* iOS Orange Dark */
+    --warning-foreground: 0 0% 0%;
+    --border: 0 0% 20%; /* iOS Separator Dark */
+    --input: 0 0% 17%;
+    --ring: 209 100% 60%;
+    
+    /* iOS Specific Dark */
+    --ios-label: 0 0% 100%;
+    --ios-secondary-label: 0 0% 60%;
+    --ios-tertiary-label: 0 0% 48%;
+    --ios-system-fill: 0 0% 20%;
+    --ios-secondary-system-fill: 0 0% 16%;
+    --ios-tertiary-system-fill: 0 0% 12%;
+    --ios-quaternary-system-fill: 0 0% 8%;
   }
 
   * {
@@ -54,5 +82,101 @@
 
   body {
     @apply bg-background text-foreground;
+    /* iOS Safe Area Support */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic Viewport Height for iOS */
+  }
+
+  /* iOS Typography Scale */
+  .ios-large-title {
+    @apply text-4xl font-bold leading-tight tracking-tight;
+  }
+
+  .ios-title-1 {
+    @apply text-3xl font-bold leading-tight;
+  }
+
+  .ios-title-2 {
+    @apply text-2xl font-semibold leading-tight;
+  }
+
+  .ios-title-3 {
+    @apply text-xl font-semibold leading-snug;
+  }
+
+  .ios-headline {
+    @apply text-lg font-semibold leading-snug;
+  }
+
+  .ios-body {
+    @apply text-base leading-relaxed;
+  }
+
+  .ios-body-emphasized {
+    @apply text-base font-semibold leading-relaxed;
+  }
+
+  .ios-callout {
+    @apply text-base leading-relaxed;
+  }
+
+  .ios-subheadline {
+    @apply text-sm leading-relaxed;
+  }
+
+  .ios-footnote {
+    @apply text-xs leading-relaxed;
+  }
+
+  .ios-caption-1 {
+    @apply text-xs leading-normal;
+  }
+
+  .ios-caption-2 {
+    @apply text-xs leading-tight;
+  }
+
+  /* iOS Touch Feedback */
+  .ios-touch {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    transition: all 0.15s ease-out;
+  }
+
+  .ios-touch:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+
+  /* iOS Blur Effects */
+  .ios-blur {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* iOS System Colors */
+  .ios-system-red { color: hsl(var(--destructive)); }
+  .ios-system-orange { color: hsl(var(--warning)); }
+  .ios-system-yellow { color: hsl(var(--warning)); }
+  .ios-system-green { color: hsl(var(--success)); }
+  .ios-system-mint { color: hsl(162 63% 54%); }
+  .ios-system-teal { color: hsl(175 70% 41%); }
+  .ios-system-cyan { color: hsl(189 85% 56%); }
+  .ios-system-blue { color: hsl(var(--primary)); }
+  .ios-system-indigo { color: hsl(238 83% 67%); }
+  .ios-system-purple { color: hsl(269 87% 68%); }
+  .ios-system-pink { color: hsl(315 85% 70%); }
+  .ios-system-brown { color: hsl(29 58% 52%); }
+  .ios-system-gray { color: hsl(var(--muted-foreground)); }
+
+  /* Haptic Feedback Support (iOS Safari) */
+  .haptic-light { cursor: pointer; }
+  .haptic-medium { cursor: pointer; }
+  .haptic-heavy { cursor: pointer; }
+
+  /* Minimum Touch Target Size (44pt = 44px on 1x displays) */
+  .ios-touch-target {
+    min-height: 44px;
+    min-width: 44px;
   }
 }
