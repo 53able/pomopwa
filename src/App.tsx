@@ -8,16 +8,19 @@ function App() {
   const { settings, statistics, updateSettings } = usePomodoro();
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto py-8">
-        <PomodoroTimer onSettingsOpen={() => setSettingsOpen(true)} />
-        <PomodoroSettings
-          open={settingsOpen}
-          onOpenChange={setSettingsOpen}
-          settings={settings}
-          statistics={statistics}
-          onSettingsUpdate={updateSettings}
-        />
+    <div className="min-h-screen min-h-[100dvh] bg-background">
+      {/* iOS Safe Area対応のコンテナ */}
+      <div className="container mx-auto px-4 py-safe-area-top pb-safe-area-bottom">
+        <div className="min-h-screen min-h-[100dvh] flex flex-col justify-center items-center">
+          <PomodoroTimer onSettingsOpen={() => setSettingsOpen(true)} />
+          <PomodoroSettings
+            open={settingsOpen}
+            onOpenChange={setSettingsOpen}
+            settings={settings}
+            statistics={statistics}
+            onSettingsUpdate={updateSettings}
+          />
+        </div>
       </div>
     </div>
   );
